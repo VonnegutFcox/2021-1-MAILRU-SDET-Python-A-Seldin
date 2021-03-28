@@ -3,9 +3,11 @@ from selenium.webdriver.common.by import By
 ENTER_LOCATOR = (By.XPATH, '//div[text()="Войти"]')
 INPUT_MAIL_LOCATOR = (By.NAME, 'email')
 INPUT_PASSWORD_LOCATOR = (By.NAME, 'password')
-ENTER_REG_LOCATOR = (By.CLASS_NAME, 'authForm-module-button-2G6lZu')
+ENTER_REG_LOCATOR = (By.XPATH,
+                     '//div[contains(@class, "authForm-module-button")]')
 
-PROFILE_LOCATOR = (By.CLASS_NAME, 'right-module-rightButton-39YRvc')
+PROFILE_LOCATOR = (By.XPATH,
+                   '//div[contains(@class, "right-module-rightButton")]')
 
 LOGOUT_LOCATOR = (By.XPATH, '//a[@href="/logout"]')
 
