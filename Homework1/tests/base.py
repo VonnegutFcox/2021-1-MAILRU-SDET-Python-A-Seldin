@@ -2,8 +2,7 @@ import pytest
 from selenium.common.exceptions import StaleElementReferenceException
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from ui.locators import basic_locators
-
+from Homework1.ui.locators import basic_locators
 
 CLICK_RETRY = 3
 

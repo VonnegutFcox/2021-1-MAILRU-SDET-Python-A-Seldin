@@ -1,6 +1,6 @@
 import pytest
 from base import BaseCase
-from ui.locators import basic_locators as bl
+from Homework1.ui.locators import basic_locators as bl
 
 
 class TestFour(BaseCase):
