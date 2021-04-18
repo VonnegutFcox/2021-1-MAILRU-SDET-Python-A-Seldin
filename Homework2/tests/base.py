@@ -11,13 +11,13 @@ class BaseCase:
     authorize = True
 
     @pytest.fixture(scope='function', autouse=True)
-    def setup(self, driver, config, request: FixtureRequest):
+    def setup(self, driver, config, request: FixtureRequest, logger):
         self.driver = driver
         self.config = config
-        # self.logger = logger
+        self.logger = logger
 
         self.base_page: BasePage = request.getfixturevalue('base_page')
         self.login_page: LoginPage = request.getfixturevalue('login_page')
         if self.authorize:
             self.dashboard_page: DashboardPage = request.getfixturevalue('dashboard_page')
-        # self.logger.debug('Initial setup done!')
+        self.logger.debug('Initial setup done!')

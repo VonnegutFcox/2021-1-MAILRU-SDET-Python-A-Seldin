@@ -1,3 +1,5 @@
+import random
+
 import allure
 import pytest
 
@@ -18,7 +20,8 @@ class TestCampaign(BaseCase):
          is in the table of existing ones 
         """)
     def test_campaign(self, campaign_page):
-        campaign = campaign_page.create_the_campaign()
-        # self.logger.info("# Results checking...")
+        campaign_name = f'test campaign--{random.randint(1, 100)}'
+        campaign = campaign_page.create_the_campaign(campaign_name)
+        self.logger.info("# Results checking...")
         assert campaign is True
-        # self.logger.info("# all went according plan...")
+        self.logger.info("# all went according plan...")

@@ -19,9 +19,6 @@ class LoginPage(BasePage):
         return DashboardPage(self.driver)
 
     def negitive_check(self):
-        try:
-            error = self.check_exists(self.locators.ERROR_MESSAGE)
-            return error
-        except AssertionError:
-            error = self.check_exists(self.locators.ERROR_MESSAGE1)
-            return error
+        er1 = self.check_exists(self.locators.ERROR_MESSAGE)
+        er2 = self.check_exists(self.locators.ERROR_MESSAGE1)
+        return True in (er1, er2)

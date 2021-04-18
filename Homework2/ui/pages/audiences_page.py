@@ -9,7 +9,7 @@ class AudiencesPage(BasePage):
     url = 'https://target.my.com/segments/segments_list'
     locators = AudiencesPageLocators()
 
-    def segment_create(self):
+    def segment_create(self, segment_name):
         try:
             self.click(self.locators.CREATE_AUDIENCES)
         except WebDriverException:
@@ -17,14 +17,15 @@ class AudiencesPage(BasePage):
 
         self.click(self.locators.ADDINDG_SEGMENTS_checkbox)
         self.click(self.locators.BUTTON_ADD_SEGMENT)
-        segment = self.input_textarea(self.locators.SEGMENT_NAME, query='test segment')
+        segment = self.input_textarea(self.locators.SEGMENT_NAME,
+                                      query=str(segment_name))
         self.click(self.locators.BUTTON_CREATE_AUDIENCES)
-        seg_name = segment.get_attribute("value")
         self.wait()
         segment_check = self.find((By.XPATH,
-                                   f'//a[@title="{seg_name}"]'))
+                                   f'//a[@title="{segment_name}"]'))
+        print(segment_name, segment_check.get_attribute('text'))
         return [
-            str(seg_name),
+            str(segment_name),
             str(segment_check.get_attribute('text'))
         ]
 

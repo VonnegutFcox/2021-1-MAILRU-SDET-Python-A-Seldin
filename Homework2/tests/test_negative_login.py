@@ -27,6 +27,6 @@ class TestNegativeLogin(BaseCase):
                 login=login,
                 password=password
             )
-            # self.logger.info("# Results checking...")
+            self.logger.info("# Results checking...")
         assert self.login_page.negitive_check() is True
-        # self.logger.info("# all went according plan...")
+        self.logger.info("# all went according plan...")
