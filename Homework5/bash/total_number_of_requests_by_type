@@ -1,0 +1,2 @@
+#!/bin/bash
+awk < access.log '{t[$6]++} END {for (var in t) print var,t[var]}' > utput2.txt

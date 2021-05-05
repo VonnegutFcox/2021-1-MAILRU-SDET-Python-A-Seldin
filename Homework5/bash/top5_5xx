@@ -1,0 +1,3 @@
+#!/bin/bash
+
+awk < access.log '$9~/5[0-9][0-9]/ {t[$1]++} END {for (var in t) print var,t[var]}' | sort -nrk2 | sed 5q | column -t >> output5.txt
