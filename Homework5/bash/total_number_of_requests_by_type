@@ -1,2 +1,2 @@
 #!/bin/bash
-for i in GET POST HEAD DELETE PUT OPTIONS CONNECT; do echo $i - `grep -c $i access.log`; done | column -t >> output2.txt
+awk < access.log '{t[$6]++} END {for (var in t) print var,t[var]}' > utput2.txt
