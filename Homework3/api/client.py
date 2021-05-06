@@ -151,7 +151,6 @@ class ApiClient:
 
     def delete_segment(self, segment_id):
         link = f'https://target.my.com/api/v2/remarketing/segments/{segment_id}.json'
-        # location = 'https://target.my.com/api/v1/remarketing/mass_action/delete.json'
         headers = self.post_headers
         data = {
             'source_id': segment_id,
